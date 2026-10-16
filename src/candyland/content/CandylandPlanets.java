@@ -58,8 +58,8 @@ public class CandylandPlanets {
             );
         }};
     }
-
-    public static class CookiePlanetGenerator extends BlankPlanetGenerator {
+}
+public static class CookiePlanetGenerator extends BlankPlanetGenerator {
         private static final Color doughLight = Color.valueOf("e8a05a");
         private static final Color doughDark  = Color.valueOf("c17a3a");
         private static final Color chocolate  = Color.valueOf("2a1508");
@@ -86,4 +86,3 @@ public class CandylandPlanets {
         @Override public boolean allowLanding(Sector sector) { return false; }
         @Override public void getLockedText(Sector hovered, StringBuilder out) { out.append("[orange]Cookie locked[]"); }
     }
-}
