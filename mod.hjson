@@ -1,0 +1,8 @@
+displayName: "Candyland"
+name: "candyland"
+author: "Cookie Baker"
+main: "candyland.CandylandMod"
+description: "everything made with candys"
+version: "2.2"
+minGameVersion: 154
+java: true
