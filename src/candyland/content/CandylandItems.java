@@ -4,7 +4,7 @@ import arc.graphics.*;
 import mindustry.type.*;
 
 public class CandylandItems {
-    public static Item cookie, dough, chocolateChip, whitePowder;
+    public static Item cookie, dough, chocolateChip, whitePowder, pilonciyo;
 
     public static void load() {
         cookie = new Item("cookie", Color.valueOf("e8a05a")) {{
@@ -18,6 +18,9 @@ public class CandylandItems {
         }};
         whitePowder = new Item("white-powder", Color.valueOf("f5f5f5")) {{
             hardness = 1; cost = 0.4f; alwaysUnlocked = true;
+        }};
+        pilonciyo = new Item("pilonciyo", Color.valueOf("c4a574")) {{
+            hardness = 2; cost = 1.2f; alwaysUnlocked = true;
         }};
     }
 }
