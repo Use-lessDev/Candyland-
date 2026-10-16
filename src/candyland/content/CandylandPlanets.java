@@ -53,8 +53,9 @@ public class CandylandPlanets {
             unlockedOnLand.addAll(
                 CandylandItems.cookie, CandylandItems.dough,
                 CandylandItems.chocolateChip, CandylandItems.whitePowder,
+                CandylandItems.pilonciyo,
                 CandylandBlocks.cookieDefenseWall, CandylandBlocks.cookieDefenseWallLarge,
-                CandylandBlocks.cookieDrill
+                CandylandBlocks.cookieDrill, CandylandBlocks.cookieOven
             );
         }};
     }
