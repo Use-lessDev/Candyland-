@@ -5,18 +5,29 @@ import arc.math.geom.Vec3;
 import arc.util.noise.Simplex;
 import candyland.maps.utils.CookieBasicGenerator;
 import mindustry.type.Sector;
+import mindustry.world.Block;
 
 public class CookiePlanetGenerator extends CookieBasicGenerator {
+    // TODO: Implement proper Block generation so it doesnt use color for terrain generation, but instead uses blocks like other planets.
     private static final Color doughLight = Color.valueOf("e8a05a");
     private static final Color doughDark  = Color.valueOf("c17a3a");
     private static final Color chocolate  = Color.valueOf("2a1508");
     private static final Color crack      = Color.valueOf("6b2e0a");
 
     @Override
-    public float getHeight(Vec3 position) {
+    public float rawHeight(Vec3 position) {
         float n  = Simplex.noise3d(seed, 6, 0.55, 1.4, position.x, position.y, position.z);
         float n2 = Simplex.noise3d(seed + 10, 4, 0.6, 2.8, position.x * 2.2f, position.y * 2.2f, position.z * 2.2f);
         return Math.max(n * 0.2f + n2 * 0.08f, -0.05f);
+    }
+
+    @Override
+    public float getHeight(Vec3 position) {
+        return rawHeight(position);
+    }
+
+    @Override public Block getBlock(Vec3 position, boolean visualOnly) {
+        return null; // CookiePlanetGenerator does not use blocks for terrain generation
     }
 
     @Override
@@ -27,7 +38,7 @@ public class CookiePlanetGenerator extends CookieBasicGenerator {
         if (Math.abs(crackNoise) > 0.55f) { out.set(crack); return; }
         float noise = Simplex.noise3d(seed + 20, 4, 0.55, 1.8, position.x * 3.0f, position.y * 3.0f, position.z * 3.0f);
         out.set(noise > 0.12f ? doughDark : doughLight);
-        }
+    }
 
     @Override public void generateSector(Sector sector) { sector.generateEnemyBase = false; }
     @Override public boolean allowLanding(Sector sector) { return false; }
