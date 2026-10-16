@@ -3,6 +3,6 @@ name: "candyland"
 author: "poufy0707"
 main: "candyland.CandylandMod"
 description: "everything made with candys"
-version: "2.4"
+version: "2.5"
 minGameVersion: 154
 java: true
